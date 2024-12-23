@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+</head>
+<body>
+<h1>Redirecting you back to the app...</h1>
+
+<p>If you are not redirected automatically, <a id="manualLink" href="bobby://success">click here</a>.</p>
+
+<script>
+    // Deep link URL
+    const deepLink = "bobby://success";
+
+    // Redirect to the deep link
+    function redirectToApp() {
+        window.location.href = deepLink;
+    }
+
+    // Attempt to redirect after a short delay
+    setTimeout(redirectToApp, 1000); // 1-second delay
+
+    // Update the manual link for fallback
+    document.getElementById("manualLink").href = deepLink;
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect to App</title>
+</head>
+<body>
+<h1>Redirecting to the App...</h1>
+
+<!-- Redirect Button -->
+<button id="redirectButton">Go Back to App</button>
+
+<script>
+    // Redirect Function
+    function redirectToApp() {
+        // Use the custom URL scheme to redirect
+        window.location.href = "bobby://success";
+    }
+
+    // Attach to Button Click
+    document.getElementById("redirectButton").addEventListener("click", redirectToApp);
+
+    // Auto-redirect after 3 seconds
+    setTimeout(redirectToApp, 3000);
+</script>
+</body>
+</html>

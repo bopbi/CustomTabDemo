@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect to App</title>
+</head>
+<body>
+<h1>Redirecting back to the app...</h1>
+
+<!-- Redirect Button -->
+<button id="closeButton">Close Tab</button>
+
+<script>
+    // Function to redirect to the app
+    function redirectToApp() {
+        // Use your app's deep link URL
+        window.location.href = "bobby://success";
+    }
+
+    // Attach to Button Click
+    document.getElementById("closeButton").addEventListener("click", redirectToApp);
+
+    // Auto-redirect after 3 seconds
+    setTimeout(redirectToApp, 3000);
+</script>
+</body>
+</html>
