@@ -18,7 +18,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -58,13 +61,20 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun OpenLocalHtmlButton() {
-        Button(onClick = { openLocalHtml() }) {
+        val url = remember { mutableStateOf("http://10.0.2.2:8080/index.html") }
+        TextField(
+            value = url.value,
+            onValueChange = {
+                url.value = it
+            },
+            label = { Text("Enter URL") }
+        )
+        Button(onClick = { openLocalHtml(url.value) }) {
             Text(text = "Open Local HTML")
         }
     }
 
-    private fun openLocalHtml() {
-        val url = "http://10.0.2.2:8080/index.html"
+    private fun openLocalHtml(url: String) {
         val builder = CustomTabsIntent.Builder()
         val customTabsIntent = builder.build()
         customTabsIntent.launchUrl(this, Uri.parse(url))
